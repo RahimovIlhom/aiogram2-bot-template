@@ -2,3 +2,5 @@ aiogram~=2.25.1
 environs==9.5.0
 Flask~=2.3.2
 requests~=2.31.0
+Django==4.2.4
+Pillow==10.0.0
