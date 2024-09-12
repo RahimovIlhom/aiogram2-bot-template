@@ -1,4 +1,8 @@
-from aiogram import executor
+import asyncio
+import logging
+import sys
+
+from aiogram.client import bot
 
 from loader import dp
 import middlewares, filters, handlers
@@ -14,5 +18,10 @@ async def on_startup(dispatcher):
     await on_startup_notify(dispatcher)
 
 
-if __name__ == '__main__':
-    executor.start_polling(dp, on_startup=on_startup)
+async def main() -> None:
+    await dp.start_polling(bot, on_startup=on_startup)
+
+
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO, stream=sys.stdout)
+    asyncio.run(main())
